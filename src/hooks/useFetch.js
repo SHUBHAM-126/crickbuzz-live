@@ -8,7 +8,7 @@ export default function useFetch(path, local_name) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
+            'X-RapidAPI-Key': `${process.env.REACT_APP_RAPIDAPI_KEY}`,
             'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
     };
@@ -23,14 +23,19 @@ export default function useFetch(path, local_name) {
             fetch(path, options)
                 .then(res => res.json())
                 .then(res => {
-                    setData(res)
-                    setPending(false)
-                    console.log('Fetched from API')
-                    localStorage.setItem(local_name, JSON.stringify(res))
+                    if (res.message == "Too many requests") {
+                        throw "Too many requests"
+                    }
+                    else {
+                        setData(res)
+                        setPending(false)
+                        console.log('Fetched from API')
+                        localStorage.setItem(local_name, JSON.stringify(res))
+                    }
                 })
                 .catch(err => console.log(err))
         }
     }, [path, local_name])
 
-    return {data, pending}
+    return { data, pending }
 }
