@@ -8,7 +8,7 @@ export default function useFetch(path, local_name) {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'b87670a014mshde7d54c98d987d6p115316jsn1307cbbb39da',
+            'X-RapidAPI-Key': `${process.env.RAPIDAPI_KEY}`,
             'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
         }
     };
