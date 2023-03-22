@@ -1,5 +1,5 @@
 import { format } from 'date-fns'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function MatchList({ data, active, upcoming = false }) {
     return (
@@ -22,15 +22,19 @@ export default function MatchList({ data, active, upcoming = false }) {
                                                             <div className='space-y-2 border-l-4 border-slate-700/60 px-3 py-2'>
                                                                 <div className='flex gap-5'>
                                                                     <p className='w-10'>{match.matchInfo.team1.teamSName}</p>
-                                                                    <p>
-                                                                        {Object.keys(match.matchScore.team1Score).length != 0 && `${match.matchScore.team1Score.inngs1.runs} (${match.matchScore.team1Score.inngs1.overs} Overs)`}
-                                                                    </p>
+                                                                    {match.matchScore.team1Score &&
+                                                                        <p>
+                                                                            {Object.keys(match.matchScore.team1Score).length != 0 && `${match.matchScore.team1Score.inngs1.runs} (${match.matchScore.team1Score.inngs1.overs} Overs)`}
+                                                                        </p>
+                                                                    }
                                                                 </div>
                                                                 <div className='flex gap-5'>
                                                                     <p className='w-10'>{match.matchInfo.team2.teamSName}</p>
-                                                                    <p>
-                                                                        {Object.keys(match.matchScore.team2Score).length != 0 && `${match.matchScore.team2Score.inngs1.runs} (${match.matchScore.team2Score.inngs1.overs} Overs)`}
-                                                                    </p>
+                                                                    {match.matchScore.team2Score &&
+                                                                        <p>
+                                                                            {Object.keys(match.matchScore.team2Score).length != 0 && `${match.matchScore.team2Score.inngs1.runs} (${match.matchScore.team2Score.inngs1.overs} Overs)`}
+                                                                        </p>
+                                                                    }
                                                                 </div>
                                                                 <p className='text-blue-300'>{match.matchInfo.status}</p>
                                                             </div>
@@ -47,7 +51,7 @@ export default function MatchList({ data, active, upcoming = false }) {
                                                             <Link to={`/match/${match.matchInfo.matchId}?selected=scorecard`} className='px-2 cursor-pointer hover:text-sky-600'>Scorecard</Link>
                                                             <Link to={`/match/${match.matchInfo.matchId}?selected=full-commentary`} className='pl-2 pr-0 cursor-pointer hover:text-sky-600'>Full Commentary</Link>
                                                         </div>}
-                                            
+
                                                     </div>
                                                 ))}
                                             </div>

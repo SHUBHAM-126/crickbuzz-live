@@ -10,7 +10,7 @@ export default function Recent() {
 
     useEffect(() => {
         if (!pending) {
-            setActive(recent.filters.matchType[0])
+            setActive(recent.typeMatches[0].matchType)
         }
     }, [recent])
 
@@ -24,17 +24,17 @@ export default function Recent() {
 
                 <div className='flex align-middle gap-3 md:gap-6 mb-2 overflow-auto text-sm md:text-lg'>
                     {!pending &&
-                        recent.filters.matchType.map((type) => {
+                        recent.typeMatches.map((type) => {
                             return (
-                                <h3 key={type}
-                                    className={active == type ? 'active_tab cursor-pointer' : 'cursor-pointer border border-slate-700/30 px-1 md:px-2 py-1 rounded-sm hover:text-sky-500'}
-                                    onClick={() => setActive(type)}>
-                                    {type}
+                                <h3 key={type.matchType}
+                                    className={active == type.matchType ? 'active_tab cursor-pointer' : 'cursor-pointer border border-slate-700/30 px-1 md:px-2 py-1 rounded-sm hover:text-sky-500'}
+                                    onClick={() => setActive(type.matchType)}>
+                                    {type.matchType}
                                 </h3>
                             )
                         })}
                 </div>
-                {!pending && <MatchList data={recent} active={active}/>}
+                {!pending && <MatchList data={recent} active={active} />}
 
             </div>
         </div>

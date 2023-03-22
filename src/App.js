@@ -18,6 +18,7 @@ function App() {
           <div className='md:w-2/3 md:pr-5'>
             <Routes>
               <Route path='/' element={<Live/>} />
+              <Route path='/crickbuzz-live' element={<Live/>} />
               <Route path='/recent' element={<Recent />}/>
               <Route path='/upcoming' element={<Upcoming/>} />
               <Route path='match/:id' element={<Match/>}/>
