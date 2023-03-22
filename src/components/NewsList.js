@@ -6,10 +6,6 @@ export default function NewsList() {
 
     const {data, pending} = useFetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', 'news')
 
-    useEffect(()=>{
-        console.log(data)
-    },[pending])
-
     return (
         <div>
             <h2 className="text-xl mb-2">Latest News</h2>

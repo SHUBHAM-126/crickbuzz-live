@@ -33,7 +33,9 @@ export default function useFetch(path, local_name) {
                         localStorage.setItem(local_name, JSON.stringify(res))
                     }
                 })
-                .catch(err => console.log(err))
+                .catch(err => {
+                    console.log(err)
+                })
         }
     }, [path, local_name])
 
