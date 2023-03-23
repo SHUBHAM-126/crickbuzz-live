@@ -18,7 +18,6 @@ export default function Match() {
     const { data: info, pending: infoPending } = useFetch(`https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/${matchId}`, matchId)
 
     useEffect(() => {
-        console.log("MatchID:" + matchId)
 
         if (selected.get('selected') != null) {
             setActive(selected.get('selected'))

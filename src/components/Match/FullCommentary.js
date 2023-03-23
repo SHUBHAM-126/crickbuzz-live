@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useFetch from "../../hooks/useFetch"
 import reactStringReplace from "react-string-replace";
 
@@ -6,12 +5,25 @@ export default function FullCommentary({ id }) {
 
   const { data: comm, pending: commPending } = useFetch(`https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/${id}/comm`, `${id}/comm`)
 
-  const Replacer = (str, repText, withText) => {
-    for (let i = 0; i < repText.length; i++) {
-      //str = str.replace(repText[i], withText[i])
-      str = reactStringReplace(str, repText[i], (match) => (<b className="text-white font-semibold">{withText[i]}</b>))
+  const Replacer = (str, comsFormat) => {
+    
+    if (comsFormat.italic) {
+      for (let i = 0; i < comsFormat.italic.formatId.length; i++) {
+        str = reactStringReplace(str, comsFormat.italic.formatId[i], (match) => {
+          return (<i className="text-white" key={comsFormat.italic.formatId[i]}>{comsFormat.italic.formatValue[i]}</i>)
+        })
+      }
     }
-    str = reactStringReplace(str, '\\n', (match) => (<br />))
+
+    if (comsFormat.bold) {
+      for (let i = 0; i < comsFormat.bold.formatId.length; i++) {
+        str = reactStringReplace(str, comsFormat.bold.formatId[i], (match) => {
+          return (<b className="text-white font-semibold" key={comsFormat.bold.formatId[i]}>{comsFormat.bold.formatValue[i]}</b>)
+        })
+      }
+    }
+
+    str = reactStringReplace(str, '\\n', (match, index) => (<br key={index}/>))
     return (<>{str}</>)
   }
 
@@ -22,7 +34,7 @@ export default function FullCommentary({ id }) {
       {!commPending &&
         <>
           <ul className='space-y-6'>
-            {comm.commentaryList.map(coms => (
+            {comm.commentaryList.map((coms) => (
               <li key={coms.timestamp} className='font-light text-slate-200 text-sm'>
 
                 <div className='flex gap-1 md:gap-3 flex-col md:flex-row items-start'>
@@ -33,7 +45,7 @@ export default function FullCommentary({ id }) {
 
                   {Object.keys(coms.commentaryFormats).length != 0 &&
                     <div>
-                      {Replacer(coms.commText, coms.commentaryFormats.bold.formatId, coms.commentaryFormats.bold.formatValue)}
+                      {Replacer(coms.commText, coms.commentaryFormats)}
                     </div>
                   }
                 </div>
