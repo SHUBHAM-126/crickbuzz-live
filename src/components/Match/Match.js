@@ -37,8 +37,8 @@ export default function Match() {
                     </h1>
                     <p className='mb-1 text-slate-200'>{`${info.matchInfo.series.name}`}</p>
                     <div className='text-xs font-light text-slate-200 flex flex-col md:flex-row gap-0 md:gap-8'>
-                        <p>{`Venue: ${format(new Date(info.matchInfo.matchStartTimestamp), 'p O, PP')}`}</p>
-                        <p>{`Date & Time: ${info.matchInfo.venue.name}, ${info.matchInfo.venue.city}`}</p>
+                        <p>{`Date & Time: ${format(new Date(info.matchInfo.matchStartTimestamp), 'p O, PP')}`}</p>
+                        <p>{`Venue: ${info.matchInfo.venue.name}, ${info.matchInfo.venue.city}`}</p>
                     </div>
 
                     {/* Tabs */}
