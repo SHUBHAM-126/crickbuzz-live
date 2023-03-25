@@ -11,7 +11,7 @@ import Match from './components/Match/Match';
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename='/crickbuzz-live'>
       <Header />
       <div className='px-4 md:px-10'>
         <div className='md:flex max-w-6xl mx-auto divide-y md:divide-y-0 md:divide-x divide-slate-700/60 py-7'>
