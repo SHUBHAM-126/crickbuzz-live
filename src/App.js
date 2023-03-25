@@ -17,12 +17,13 @@ function App() {
         <div className='md:flex max-w-6xl mx-auto divide-y md:divide-y-0 md:divide-x divide-slate-700/60 py-7'>
           <div className='md:w-2/3 md:pr-5'>
             <Routes>
+              
               <Route path='/' element={<Live/>} />
-              <Route path='/crickbuzz-live' element={<Live/>} />
               <Route path='/recent' element={<Recent />}/>
               <Route path='/upcoming' element={<Upcoming/>} />
-              <Route path='match/:id' element={<Match/>}/>
-              <Route path='*' element={<PageNotFound/>}/>
+              <Route path='/match/:id' element={<Match/>}/>
+              <Route path='/*' element={<PageNotFound/>}/>
+          
             </Routes>
           </div>
           <div className='md:w-1/3 md:pl-5'>
