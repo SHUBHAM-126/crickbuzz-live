@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/crickbuzz-live/static/css/main.4a135559.css",
-    "main.js": "/crickbuzz-live/static/js/main.c5baeed5.js",
+    "main.css": "/crickbuzz-live/static/css/main.7f5e6b67.css",
+    "main.js": "/crickbuzz-live/static/js/main.036de219.js",
     "static/js/787.82b3dd2b.chunk.js": "/crickbuzz-live/static/js/787.82b3dd2b.chunk.js",
     "index.html": "/crickbuzz-live/index.html",
-    "main.4a135559.css.map": "/crickbuzz-live/static/css/main.4a135559.css.map",
-    "main.c5baeed5.js.map": "/crickbuzz-live/static/js/main.c5baeed5.js.map",
+    "main.7f5e6b67.css.map": "/crickbuzz-live/static/css/main.7f5e6b67.css.map",
+    "main.036de219.js.map": "/crickbuzz-live/static/js/main.036de219.js.map",
     "787.82b3dd2b.chunk.js.map": "/crickbuzz-live/static/js/787.82b3dd2b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a135559.css",
-    "static/js/main.c5baeed5.js"
+    "static/css/main.7f5e6b67.css",
+    "static/js/main.036de219.js"
   ]
 }
