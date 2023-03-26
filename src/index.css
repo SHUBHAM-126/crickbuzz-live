@@ -17,3 +17,9 @@
         @apply text-sky-400
     }
 }
+.table-styles{
+    @apply text-left font-light w-full text-xs md:text-base
+}
+.table-styles th, .table-styles td{
+    @apply px-1 md:px-2 py-1
+}

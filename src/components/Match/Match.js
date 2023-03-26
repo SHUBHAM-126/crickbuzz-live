@@ -63,8 +63,8 @@ export default function Match() {
                                 Commentary
                             </li>
                         </ul>
-                        {(active != 'scorecard' && active != 'full-commentary') && <LiveScore />}
-                        {active == 'scorecard' && <ScoreCard />}
+                        {(active != 'scorecard' && active != 'full-commentary') && <LiveScore id={matchId}/>}
+                        {active == 'scorecard' && <ScoreCard id={matchId} />}
                         {active == 'full-commentary' && <FullCommentary id= {matchId}/>}
                     </div>
 
