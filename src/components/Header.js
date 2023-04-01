@@ -10,7 +10,7 @@ export default function Header() {
     }
 
     return (
-        <div className="px-4 md:px-10 overflow-x-clip py-4 bg-gray-900 text-white bg-opacity-95 backdrop-blur-sm border-b border-slate-700/60 sticky top-0">
+        <div className="px-4 md:px-10 overflow-x-clip py-4 bg-gray-900 text-white bg-opacity-95 backdrop-blur-sm border-b border-slate-700/60 sticky top-0 z-50">
             <div className="max-w-6xl mx-auto">
                 <div className="flex items-center justify-between">
                     <Link to='/'><h2 className="uppercase text-lg">CrickBuzz<span className="text-xs text-green-400">Live</span></h2></Link>

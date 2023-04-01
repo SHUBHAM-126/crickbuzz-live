@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter basename='/crickbuzz-live'>
       <Header />
       <div className='px-4 md:px-10'>
-        <div className='md:flex max-w-6xl mx-auto divide-y md:divide-y-0 md:divide-x divide-slate-700/60 py-7'>
+        <div className='md:flex max-w-6xl mx-auto md:divide-y-0 md:divide-x md:divide-slate-700/60 py-7'>
           <div className='md:w-2/3 md:pr-5'>
             <Routes>
               
@@ -26,6 +26,7 @@ function App() {
           
             </Routes>
           </div>
+          <hr className='w-screen relative -left-4 border-b border-slate-400 md:hidden'/>
           <div className='md:w-1/3 md:pl-5'>
             <Sidebar />
           </div>

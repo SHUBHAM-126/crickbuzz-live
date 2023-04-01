@@ -66,7 +66,7 @@ export default function LiveScore({ id }) {
                 <th className="font-light">SR</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-slate-700/50">
               <tr>
                 <td>{comm.miniscore.batsmanStriker.batName}<span className="text-slate-400 text-xs align-top"> *</span></td>
                 <td>{comm.miniscore.batsmanStriker.batRuns}</td>
@@ -100,7 +100,7 @@ export default function LiveScore({ id }) {
                 <th className="font-light">ECO</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-slate-700/50">
               <tr>
                 <td>{comm.miniscore.bowlerStriker.bowlName}<span className="text-slate-400 text-xs align-top"> *</span></td>
                 <td>{comm.miniscore.bowlerStriker.bowlOvs}</td>

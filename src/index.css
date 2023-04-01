@@ -23,3 +23,6 @@
 .table-styles th, .table-styles td{
     @apply px-1 md:px-2 py-1
 }
+.score-table th, .score-table td{
+    @apply max-md:px-2
+}
