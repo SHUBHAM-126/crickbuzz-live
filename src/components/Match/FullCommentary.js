@@ -18,12 +18,15 @@ export default function FullCommentary({ id }) {
     if (comsFormat.bold) {
       for (let i = 0; i < comsFormat.bold.formatId.length; i++) {
         str = reactStringReplace(str, comsFormat.bold.formatId[i], (match) => {
-          return (<b className="text-white font-semibold" key={comsFormat.bold.formatId[i]}>{comsFormat.bold.formatValue[i]}</b>)
+          return (<b className="text-white font-semibold" key={Math.random()*1000}>{comsFormat.bold.formatValue[i]}</b>)
         })
       }
     }
-
-    str = reactStringReplace(str, '\\n', (match, index) => (<br key={index}/>))
+    let ind = 0;
+    str = reactStringReplace(str, '\\n', (match) => {
+      ind += 1;
+      return (<br key={ind}/>)
+    })
     return (<>{str}</>)
   }
 
@@ -80,7 +83,7 @@ export default function FullCommentary({ id }) {
               </li>
             ))}
           </ul>
-          <a className="bg-slate-600 px-4 py-2 rounded-sm inline-flex items-center gap-1 hover:bg-slate-700 mb-5 md:mb-0 mt-10 cursor-not-allowed">
+          <a className="bg-sky-300/10 text-sky-400 px-4 py-2 rounded-lg inline-flex items-center gap-1 hover:bg-slate-700 mb-5 md:mb-0 mt-10 cursor-not-allowed">
             Load More
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />

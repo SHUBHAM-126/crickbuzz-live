@@ -11,14 +11,15 @@ export default function LiveScore({ id }) {
       {!commPending &&
         <>
           <div className="mb-4 space-y-1">
-            {comm.matchHeader.matchTeamInfo.map((team, index) => {
+            {comm.matchHeader.matchTeamInfo && comm.matchHeader.matchTeamInfo.map((team, index) => {
               if (index < 2) {
                 const revInnings = [...comm.miniscore.matchScoreDetails.inningsScoreList].reverse()
+                console.log(revInnings.length)
                 return (
                   <h2 key={team.battingTeamId} className={`text-lg md:text-xl ${comm.miniscore.matchScoreDetails.highlightedTeamId === team.battingTeamId ? 'text-white' : 'text-slate-400'}`}>
                     <span className="mr-2 md:mr-3">{`${team.battingTeamShortName} `}</span>
                     
-                    {revInnings.map((innigs) => {
+                    {revInnings.length !==0 && revInnings.map((innigs) => {
                       
                       if (innigs.batTeamId === team.battingTeamId) {
                         return <>
