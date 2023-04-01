@@ -15,7 +15,7 @@ export default function Match() {
 
     const [active, setActive] = useState('livescore')
 
-    const { data: info, pending: infoPending } = useFetch(`https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/${matchId}`, matchId)
+    const { data: info, pending: infoPending, isError } = useFetch(`https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/${matchId}`, matchId)
 
     useEffect(() => {
 
@@ -28,8 +28,8 @@ export default function Match() {
     return (
         <div className="py-5 md:py-10">
             {/* Match details */}
-            {infoPending && <p>Loading match details...</p>}
-            {!infoPending &&
+            {(infoPending && !isError) && <p>Loading match details...</p>}
+            {(!infoPending && !isError) &&
                 <div>
                     <h1 className='text-2xl mb-5'>
                         {`${info.matchInfo.team1.name} VS ${info.matchInfo.team2.name},`}
@@ -69,6 +69,8 @@ export default function Match() {
                     </div>
 
                 </div>}
+
+                {isError && <p className='p-2 bg-red-200 rounded-lg text-center text-red-900'>An error occured while fetching the data. Please try again later!</p>}
         </div>
     )
 }

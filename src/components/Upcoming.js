@@ -5,7 +5,7 @@ import MatchList from './MatchList'
 export default function Upcoming() {
   const [active, setActive] = useState('')
 
-  const { data: live, pending } = useFetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/upcoming', 'upcoming')
+  const { data: live, pending, isError } = useFetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/upcoming', 'upcoming')
 
   useEffect(() => {
     if (!pending) {
@@ -18,11 +18,11 @@ export default function Upcoming() {
       <div className='max-w-6xl mx-auto py-5 md:py-10'>
         <h2 className='text-2xl md:text-3xl font-medium mb-5'>Upcoming Matches</h2>
         {
-          pending && <p>Loading...</p>
+          (pending && !isError) && <p>Loading...</p>
         }
 
         <div className='flex align-middle gap-3 md:gap-6 mb-2 overflow-auto text-sm md:text-lg'>
-          {!pending &&
+          {(!pending && !isError)&&
             live.typeMatches.map((type) => {
               return (
                 <h3 key={type.matchType}
@@ -33,7 +33,9 @@ export default function Upcoming() {
               )
             })}
         </div>
-        {!pending && <MatchList data={live} active={active} upcoming ={true} />}
+        {(!pending && !isError) && <MatchList data={live} active={active} upcoming ={true} />}
+
+        {isError && <p className='p-2 bg-red-200 rounded-lg text-center text-red-900'>An error occured while fetching the data. Please try again later!</p>}
 
       </div>
     </div>

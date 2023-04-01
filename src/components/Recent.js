@@ -6,7 +6,7 @@ export default function Recent() {
 
     const [active, setActive] = useState('')
 
-    const { data: recent, pending } = useFetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', 'recent')
+    const { data: recent, pending, isError  } = useFetch('https://cricbuzz-cricket.p.rapidapi.com/matches/v1/recent', 'recent')
 
     useEffect(() => {
         if (!pending) {
@@ -19,11 +19,11 @@ export default function Recent() {
             <div className='max-w-6xl mx-auto py-5 md:py-10'>
                 <h2 className='text-2xl md:text-3xl font-medium mb-5'>Recent Matches</h2>
                 {
-                    pending && <p>Loading...</p>
+                    (pending && !isError) && <p>Loading...</p>
                 }
 
                 <div className='flex align-middle gap-3 md:gap-6 mb-2 overflow-auto text-sm md:text-lg'>
-                    {!pending &&
+                    {(!pending && !isError ) &&
                         recent.typeMatches.map((type) => {
                             return (
                                 <h3 key={type.matchType}
@@ -34,7 +34,9 @@ export default function Recent() {
                             )
                         })}
                 </div>
-                {!pending && <MatchList data={recent} active={active} />}
+                {(!pending && !isError ) && <MatchList data={recent} active={active} />}
+
+                {isError && <p className='p-2 bg-red-200 rounded-lg text-center text-red-900'>An error occured while fetching the data. Please try again later!</p>}
 
             </div>
         </div>

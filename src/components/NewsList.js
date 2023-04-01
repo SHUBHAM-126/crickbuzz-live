@@ -4,12 +4,12 @@ import { formatDistanceToNow } from "date-fns"
 
 export default function NewsList() {
 
-    const {data, pending} = useFetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', 'news')
+    const {data, pending, isError} = useFetch('https://cricbuzz-cricket.p.rapidapi.com/news/v1/index', 'news')
 
     return (
         <div>
-            <h2 className="text-xl mb-2">Latest News</h2>
-            {!pending && 
+            { (!pending && !isError)&& <h2 className="text-xl mb-2">Latest News</h2>}
+            {(!pending && !isError)&& 
                 <ul className="text-sm divide-y divide-slate-700/70">
                     {data.storyList.map((story, index) => 
                         {
