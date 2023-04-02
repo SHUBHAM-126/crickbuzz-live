@@ -3,9 +3,7 @@
 Live website link: https://shubham-126.github.io/crickbuzz-live/
 
 ### About
-A react website which shows live and recent match scores. <br/>
-Developed using React and Tailwind CSS framework. Used Cricbuzz api from Rapid APIs to fetch the match details. Used date-fns library to format dates.<br/>
-The website shows list of live, recent and upcoming matches. And shows match live score, full scorecard and commentary.
+React website which shows list of live, recent and upcoming matches. And shows detailed scorecard and commentary of the match. <br/> Incorporated the Date-fns library to format dates in an easily understandable way. Used Tailwind CSS framework to create a visually appealing and modern design.
 
 ### Live matches screen
 ![image](https://user-images.githubusercontent.com/73948769/229345781-0427b627-c31f-47d5-a23d-81de352d402b.png)
